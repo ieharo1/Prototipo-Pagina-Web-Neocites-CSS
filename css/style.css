@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+}
+
+.barra-promocional {
+    width: 100%;
+    height: 45px;
+    margin: auto;
+    background-color: #FF0049;
+}
+
+.barra-promocional p a {
+    text-decoration: none;
+    color: white;
+    font-family: titulo;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.barra-promocional p {
+    text-align: center;
+    font-size: 18px;
+    padding-inline-end: 10px;
+    font-family: titulo;
+    color: white;
+}
+
+.ancho {
+    width: 100%;
+    height: 70px;
+    margin: auto;
+}
+
+.espacio {
+    width: 20%;
+    height: 70px;
+    background-color: white;
+    float: left;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 3%;
+    height: 70px;
+    background: white;
+    float: left;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.titulo {
+    width: 7%;
+    height: 70px;
+    background: white;
+    float: left;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.barra-navegacion {
+    width: 53%;
+    height: 70px;
+    padding-top: 5px;
+    background-color: white;
+    float: left;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.espacio2 {
+    width: 17%;
+    height: 70px;
+    background-color: white;
+    float: left;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+.barra-navegacion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.barra-navegacion ul li {
+    display: inline-block;
+}
+
+.barra-navegacion ul li a {
+    color: #FF0049;
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+}
+
+.barra-navegacion ul li a:hover {
+    color: black;
+}
+
+.barra-navegacion ul li ul {
+    display: none;
+    position: absolute;
+    min-width: 140px;
+}
+
+.barra-navegacion ul li:hover>ul {
+    display: block;
+    background-color: white;
+}
+
+.titulo p a {
+    color: black;
+    font-size: 25px;
+    font-family: titulo;
+    text-decoration: none;
+    padding: 0;
+}
+
+/*FUENTE DE LETRA*/
+@font-face {
+    font-family: titulo;
+    src: url(../Fonts/KaiseiHarunoUmi-Regular.ttf);
+}
+
+/*EFECTO PARTICULAS*/
+#particles-js {
+    background-color: #FF0049;
+}
