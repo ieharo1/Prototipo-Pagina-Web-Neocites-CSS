@@ -1,24 +1,29 @@
 # Sky Node Escape
 
-A vertical arcade runner game built with Vanilla JS, HTML5, and CSS3.
+Un juego arcade de evasión vertical desarrollado con Vanilla JS, HTML5 y CSS3.
 
-## How to Play
-1. Open `index.html` in your web browser.
-2. Press **SPACE** or **CLICK/TAP** to fly upwards (against gravity).
-3. Avoid the procedural obstacles.
-4. Survive as long as possible!
+## Cómo Jugar
+1. Abre `index.html` en tu navegador web.
+2. Presiona **ESPACIO** o haz **CLICK/TAP** para impulsarte hacia arriba (vencer la gravedad).
+3. Mueve el cursor o usa las **flechas (izquierda/derecha)** para desplazarte lateralmente.
+4. Esquiva los obstáculos generados proceduralmente.
+5. ¡Sobrevive el mayor tiempo posible para romper tu récord!
 
-## Features
-- **Procedural Generation:** Infinite obstacles with increasing difficulty.
-- **Physics Engine:** Custom gravity and impulse mechanics.
-- **Visuals:** Cyber minimalist aesthetic with neon glow and particle effects.
-- **Responsive:** Works on desktop and mobile.
-- **Local Storage:** Saves your high score.
+## Características
+- **Generación Procedural:** Obstáculos infinitos con dificultad progresiva.
+- **Motor de Física:** Mecánicas personalizadas de gravedad, impulso y movimiento lateral suave.
+- **Efectos Visuales:** Estética cyber minimalista con brillo neón y sistema de partículas.
+- **Responsive:** Totalmente funcional en escritorio y dispositivos móviles.
+- **Persistencia:** Guarda tu puntuación máxima y número de partidas en `localStorage`.
 
-## Technologies
+## Tecnologías Utilizadas
 - HTML5 Canvas
-- CSS3 (Animations, Flexbox)
-- Vanilla JavaScript (No frameworks, No libraries)
+- CSS3 (Animaciones, Flexbox, Variables)
+- Vanilla JavaScript (Sin frameworks, Sin librerías externas)
 
-## License
-MIT
+## Desarrollador
+👨‍💻 **Isaac Esteban Haro Torres**  
+Ingeniero en Sistemas · Full Stack · Automatización · Data
+
+---
+© 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.
