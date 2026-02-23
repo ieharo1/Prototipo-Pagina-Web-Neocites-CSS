@@ -3,7 +3,7 @@ class Obstacle {
         this.game = game;
         this.y = y;
         this.height = 30; // Height of the obstacle bar
-        this.gapWidth = 150; // Width of the safe zone
+        this.gapWidth = 100; // Width of the safe zone (reducido de 150 a 100)
         this.gapX = Math.random() * (game.width - this.gapWidth); // Random x position of gap
         this.speed = game.gameSpeed;
         this.color = '#ff00ff';

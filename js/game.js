@@ -19,17 +19,41 @@ class Game {
         this.player = new Player(this);
         this.spawner = new Spawner(this);
         
+        // Input state
+        this.mouseX = this.width / 2;
+        this.keys = {};
+        
         // Bind loop
         this.loop = this.loop.bind(this);
         
         // Input
         this.handleInput = this.handleInput.bind(this);
-        window.addEventListener('keydown', (e) => this.handleInput(e));
-        window.addEventListener('touchstart', (e) => this.handleInput(e), {passive: false});
-        window.addEventListener('mousedown', (e) => this.handleInput(e));
+        window.addEventListener('keydown', (e) => {
+            this.keys[e.code] = true;
+            this.handleInput(e);
+        });
+        window.addEventListener('keyup', (e) => {
+            this.keys[e.code] = false;
+        });
         
-        // Resize
-        window.addEventListener('resize', () => this.resize());
+        window.addEventListener('mousemove', (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            this.mouseX = e.clientX - rect.left;
+        });
+
+        window.addEventListener('touchstart', (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            this.mouseX = e.touches[0].clientX - rect.left;
+            this.handleInput(e);
+        }, {passive: false});
+
+        window.addEventListener('touchmove', (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            this.mouseX = e.touches[0].clientX - rect.left;
+            e.preventDefault();
+        }, {passive: false});
+        
+        window.addEventListener('mousedown', (e) => this.handleInput(e));
         this.resize();
 
         // Initial UI Update

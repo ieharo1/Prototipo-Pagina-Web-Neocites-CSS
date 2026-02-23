@@ -13,9 +13,25 @@ class Player {
     }
 
     update() {
-        // Physics
+        // Vertical Physics
         this.velocity += this.gravity;
         this.y += this.velocity;
+
+        // Horizontal Movement (Follow Mouse/Touch suavemente)
+        const targetX = this.game.mouseX - this.width / 2;
+        this.x += (targetX - this.x) * 0.15; // Suavizado
+
+        // Keyboard Override (si hay teclas pulsadas)
+        if (this.game.keys['ArrowLeft'] || this.game.keys['KeyA']) {
+            this.x -= 8;
+        }
+        if (this.game.keys['ArrowRight'] || this.game.keys['KeyD']) {
+            this.x += 8;
+        }
+
+        // Screen bounds (Horizontal)
+        if (this.x < 0) this.x = 0;
+        if (this.x + this.width > this.game.width) this.x = this.game.width - this.width;
 
         // Floor collision
         if (this.y + this.height > this.game.height) {
