@@ -1,31 +1,24 @@
-# 🌐 Prototipo Página Web Neocites CSS
+# Sky Node Escape
 
-Prototipo de página web con CSS desarrollado por **Isaac Esteban Haro Torres**.
+A vertical arcade runner game built with Vanilla JS, HTML5, and CSS3.
 
----
+## How to Play
+1. Open `index.html` in your web browser.
+2. Press **SPACE** or **CLICK/TAP** to fly upwards (against gravity).
+3. Avoid the procedural obstacles.
+4. Survive as long as possible!
 
-## 📝 Descripción
+## Features
+- **Procedural Generation:** Infinite obstacles with increasing difficulty.
+- **Physics Engine:** Custom gravity and impulse mechanics.
+- **Visuals:** Cyber minimalist aesthetic with neon glow and particle effects.
+- **Responsive:** Works on desktop and mobile.
+- **Local Storage:** Saves your high score.
 
-Prototipo de sitio web utilizando CSS para Neocites.
+## Technologies
+- HTML5 Canvas
+- CSS3 (Animations, Flexbox)
+- Vanilla JavaScript (No frameworks, No libraries)
 
----
-
-## 🛠️ Stack Tecnológico
-
-- HTML
-- CSS
-
----
-
-## 👨‍💻 Desarrollado por Isaac Esteban Haro Torres
-
-**Ingeniero en Sistemas · Full Stack · Automatización · Data**
-
-- 📧 Email: zackharo1@gmail.com
-- 📱 WhatsApp: 098805517
-- 💻 GitHub: https://github.com/ieharo1
-- 🌐 Portafolio: https://ieharo1.github.io/portafolio-isaac.haro/
-
----
-
-© 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.
+## License
+MIT

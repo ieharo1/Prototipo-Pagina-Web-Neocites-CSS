@@ -1,61 +1,52 @@
-// ═══════════════════════════════════════════════════════════════
-// SKY NODE ESCAPE - Obstacle Class
-// ═══════════════════════════════════════════════════════════════
+class Obstacle {
+    constructor(game, y) {
+        this.game = game;
+        this.y = y;
+        this.height = 30; // Height of the obstacle bar
+        this.gapWidth = 150; // Width of the safe zone
+        this.gapX = Math.random() * (game.width - this.gapWidth); // Random x position of gap
+        this.speed = game.gameSpeed;
+        this.color = '#ff00ff';
+        this.markedForDeletion = false;
+        this.passed = false; // To score points
+    }
 
-function Obstacle(x, gapY, gapSize, obstacleWidth, gameWidth) {
-    this.x = x;
-    this.gapY = gapY; // Y position of the center of the gap
-    this.gapSize = gapSize; // Size of the gap
-    this.width = obstacleWidth;
-    this.gameWidth = gameWidth;
+    update() {
+        this.y += this.speed;
+        this.speed = this.game.gameSpeed; // Sync speed
 
-    this.color = '#ff00aa';
+        if (this.y > this.game.height) {
+            this.markedForDeletion = true;
+        }
+    }
 
-    // Calculate the two rectangular parts of the obstacle
-    this.parts = [];
+    draw(ctx) {
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
 
-    // Top part
-    this.parts.push({
-        x: this.x,
-        y: 0,
-        width: this.width,
-        height: this.gapY - (this.gapSize / 2)
-    });
+        // Draw left part
+        ctx.fillRect(0, this.y, this.gapX, this.height);
 
-    // Bottom part
-    this.parts.push({
-        x: this.x,
-        y: this.gapY + (this.gapSize / 2),
-        width: this.width,
-        height: this.gameWidth * 2 // Make it long enough to cover to bottom
-    });
+        // Draw right part
+        ctx.fillRect(this.gapX + this.gapWidth, this.y, this.game.width - (this.gapX + this.gapWidth), this.height);
+        
+        ctx.shadowBlur = 0;
+    }
+
+    checkCollision(player) {
+        const playerBounds = player.getBounds();
+        
+        // Check vertical overlap
+        if (playerBounds.y + playerBounds.height > this.y && 
+            playerBounds.y < this.y + this.height) {
+            
+            // Check horizontal overlap (collision with left or right block)
+            if (playerBounds.x < this.gapX || 
+                playerBounds.x + playerBounds.width > this.gapX + this.gapWidth) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
-
-Obstacle.prototype.update = function(dt, gameSpeed) {
-    this.x -= gameSpeed;
-    // Update parts positions
-    for (let i = 0; i < this.parts.length; i++) {
-        this.parts[i].x = this.x;
-    }
-};
-
-Obstacle.prototype.render = function(ctx) {
-    ctx.fillStyle = this.color;
-    ctx.shadowBlur = 10;
-    ctx.shadowColor = '#ff00aa';
-
-    for (let i = 0; i < this.parts.length; i++) {
-        const part = this.parts[i];
-        ctx.fillRect(part.x, part.y, part.width, part.height);
-
-        // Add some inner detail/glow
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-        ctx.fillRect(part.x + 2, part.y + 2, part.width - 4, part.height - 4);
-        ctx.fillStyle = this.color; // Reset fill style for next part
-    }
-    ctx.shadowBlur = 0;
-};
-
-Obstacle.prototype.isOffScreen = function() {
-    return this.x + this.width < 0;
-};
